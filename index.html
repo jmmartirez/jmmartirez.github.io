@@ -3,9 +3,46 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Iceborne Countdown Timer</title>
-	<!-- Display the countdown timer in an element -->
 
 
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<style>
+		body{
+			background: url('https://cdn-ext.fanatical.com/production/product/original/5a502341-2703-4988-909a-941780b04299.jpeg?w=1200') no-repeat center fixed;
+		}
+
+		#countdown > tbody, tr, td{
+			border: none!important;
+		}
+
+		h1{
+			font-size: 9em;
+		}
+
+		.vertical-center{
+			margin-top: auto; 
+			margin-bottom:auto;
+		}
+	</style>
+
+</head>
+<body>
+	<div class="container">
+		<div id="center-row" class="row">
+			<div class="col-sm-12 vertical-center">
+				<div class="card">
+					<div class="card-body">
+				
+						<table id="countdown" class="table text-center align-middle"></table>
+						<div class="text-center">
+							<iframe src="https://store.steampowered.com/widget/1118010/" frameborder="0" width="646" height="190"></iframe>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<script>
 	// Set the date we're counting down to
 	var countDownDate = new Date("Jan 9, 2020 24:00:00").getTime();
@@ -26,19 +63,20 @@
 	  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
 	  // Display the result in the element with id="countdown"
-	  document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
-	  + minutes + "m " + seconds + "s ";
+	  document.getElementById("countdown").innerHTML = "<tr><td><h1>" + days + "</h1><br />Days</td><td><h1>" + hours + "</h1><br />Hours</td><td><h1>"
+	  + minutes + "</h1><br />Minutes</td><td><h1>" + seconds + "</h1><br />Seconds</td></tr>";
 
 	  // If the count down is finished, write some text
 	  if (distance < 0) {
 	    clearInterval(x);
-	    document.getElementById("countdown").innerHTML = "EXPIRED";
+	    document.getElementById("countdown").innerHTML = "Monster Hunter World: Iceborne is online!";
 	  }
 	}, 1000);
+
+	var screen_height = screen.height / 1.2;
+	screen_height = screen_height + 'px';
+
+	document.getElementById("center-row").style.height = screen_height;
 	</script>
-</head>
-<body>
-	<p id="countdown"></p>
-	
 </body>
 </html>
